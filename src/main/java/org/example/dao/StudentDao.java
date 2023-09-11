@@ -9,15 +9,19 @@ public class StudentDao
     private HibernateTemplate hibernateTemplate;
 
     @Transactional
-    public int insert(Student student)
-  {
-      //save student
-      Integer integer=(Integer)this.hibernateTemplate.save(student);
-      return  integer;
-
+    public int insert(Student student) {
+        //save student
+        Integer integer = (Integer) this.hibernateTemplate.save(student);
+        return integer;
+    }
       //getting single data
+      public Student getStudent(int id)
+      {
+          Student student1=(Student)this.hibernateTemplate.get("Student.java",id);
+          return student1;
+      }
 
-  }
+
 
     public HibernateTemplate getHibernateTemplate() {
 
