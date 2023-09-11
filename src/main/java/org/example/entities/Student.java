@@ -1,12 +1,13 @@
 package org.example.entities;
 
+import org.example.dao.StudentDao;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Student
-{
+public class Student {
     @Id
     @Column(name = "s_id")
   private int id;
