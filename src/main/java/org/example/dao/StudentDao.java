@@ -11,8 +11,12 @@ public class StudentDao
     @Transactional
     public int insert(Student student)
   {
+      //save student
       Integer integer=(Integer)this.hibernateTemplate.save(student);
       return  integer;
+
+      //getting single data
+
   }
 
     public HibernateTemplate getHibernateTemplate() {
