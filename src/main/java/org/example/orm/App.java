@@ -5,6 +5,8 @@ import org.example.entities.Student;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.List;
+
 /**
  * Hello world!
  *
@@ -17,8 +19,11 @@ public class App
         System.out.println( "Hello World!" );
         ApplicationContext context=new ClassPathXmlApplicationContext("Config.xml");
         StudentDao studentDao=context.getBean("studentdao",StudentDao.class);
-        Student student=new Student(101,"pari","Pune");
-        int r=studentDao.insert(student);
-        System.out.println("done"+r);
+//        Student student=new Student(102,"xyz","Pune");
+//        int r=studentDao.insert(student);
+//        System.out.println("done"+r);
+         Student r1= studentDao.getStudent(101);
+        System.out.println("done"+r1);
+
     }
 }
