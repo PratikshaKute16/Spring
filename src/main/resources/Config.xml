@@ -5,5 +5,32 @@
         http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean class="org.springframework.jdbc.datasource" name="ds">
+        <property name="driverClassName" value="org.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:"/>
+    </bean>
+
+    <bean class="org.springframework.orm.hibernate5.LocalSessionFactoryBean" name="factory">
+        <property name="dataSource" ref="ds"/>
+        <property name="hibernateProperties" ref=""/>
+        <props>
+            <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+            <prop key="hibernate.show_sql">true</prop>
+            <prop key="hibernate.hbm2ddl.auto">update</prop>
+        </props>
+
+        <property name="annotatedClasses">
+            <list>
+                <value>org.sprin</value>
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.orm.hibernate5.HibernateTemplate" name="hiberTemp">
+        <property name="SessionFactory" ref=""/>
+    </bean>
+    
+    <bean class="org.example.entities.Student" name="s_dao">
+        <property name="hibernateTemplate" ref="hiberTemp"/>
+    </bean>
 
 </beans>
