@@ -25,10 +25,10 @@ public class App
 //        int r=studentDao.insert(student);
 //        System.out.println("done"+r);
 
-        //updating student
+        //getting data
      Student student1=studentDao.getStudent(101);
         System.out.println(student1);
-
+//updating student
         Student updatedStudent = new Student();
         updatedStudent.setId(101); // Set the ID of the student you want to update
         updatedStudent.setName("Adhey");
