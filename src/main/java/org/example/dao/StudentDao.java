@@ -32,10 +32,16 @@ public class StudentDao
 
     //delete data
     @Transactional
-    public void delete(int id)
+    public boolean delete(Student delStud)
     {
-        Student student=(Student)this.hibernateTemplate.get(Student.class,id);
-         this.hibernateTemplate.delete(id);
+        Student existingstudent=(Student)this.hibernateTemplate.get(Student.class,delStud.getId());
+
+        if(existingstudent!=null)
+
+        {
+            this.hibernateTemplate.delete(existingstudent);
+        }
+      return true;
     }
 
     //update data

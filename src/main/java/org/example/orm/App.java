@@ -19,20 +19,26 @@ public class App
         System.out.println( "Hello World!" );
         ApplicationContext context=new ClassPathXmlApplicationContext("Config.xml");
         StudentDao studentDao=context.getBean("studentdao",StudentDao.class);
+
+        //inserting student
 //        Student student=new Student(105,"Aish","Pune");
 //        int r=studentDao.insert(student);
 //        System.out.println("done"+r);
 
+        //updating student
      Student student1=studentDao.getStudent(101);
         System.out.println(student1);
 
-        Student updatedStudent = new Student();
-        updatedStudent.setId(101); // Set the ID of the student you want to update
-        updatedStudent.setName("Pratiksha");
-        updatedStudent.setCity("pune");
+//        Student updatedStudent = new Student();
+//        updatedStudent.setId(101); // Set the ID of the student you want to update
+//        updatedStudent.setName("Pratiksha");
+//        updatedStudent.setCity("pune");
+//
+//        studentDao.update(updatedStudent); // Update the student's data
 
-        studentDao.update(updatedStudent); // Update the student's data
-
+//deleting student
+        boolean s=studentDao.delete(student1);
+        System.out.println(s);
 
 
 
