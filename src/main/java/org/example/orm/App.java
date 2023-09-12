@@ -21,24 +21,26 @@ public class App
         StudentDao studentDao=context.getBean("studentdao",StudentDao.class);
 
         //inserting student
-//        Student student=new Student(105,"Aish","Pune");
-//        int r=studentDao.insert(student);
-//        System.out.println("done"+r);
+        Student student=new Student(101,"Aish","Pune");
+        int r=studentDao.insert(student);
+        System.out.println("done"+r);
 
         //updating student
      Student student1=studentDao.getStudent(101);
         System.out.println(student1);
 
-//        Student updatedStudent = new Student();
-//        updatedStudent.setId(101); // Set the ID of the student you want to update
-//        updatedStudent.setName("Pratiksha");
-//        updatedStudent.setCity("pune");
-//
-//        studentDao.update(updatedStudent); // Update the student's data
+        Student updatedStudent = new Student();
+        updatedStudent.setId(101); // Set the ID of the student you want to update
+        updatedStudent.setName("Pratiksha");
+        updatedStudent.setCity("pune");
+
+        studentDao.update(updatedStudent); // Update the student's data
 
 //deleting student
-        boolean s=studentDao.delete(student1);
-        System.out.println(s);
+//        Student student2=studentDao.getStudent(102);
+//        System.out.println(student2);
+//        boolean s=studentDao.delete(student2);
+//        System.out.println(s);
 
 
 
