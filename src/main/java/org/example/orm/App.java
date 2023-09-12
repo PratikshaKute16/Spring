@@ -26,8 +26,7 @@ public class App
      Student student1=studentDao.getStudent(101);
         System.out.println(student1);
 
-        Student student2=studentDao.delete(101);
-        System.out.println(student2);
+        System.out.println(studentDao.delete(101));
 
     }
 }
