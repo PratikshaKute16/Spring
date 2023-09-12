@@ -1,6 +1,5 @@
 package org.example.dao;
 
-import net.bytebuddy.agent.builder.AgentBuilder;
 import org.example.entities.Student;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.transaction.annotation.Transactional;
@@ -33,18 +32,26 @@ public class StudentDao
 
     //delete data
     @Transactional
-    public boolean delete(int id)
+    public void delete(int id)
     {
-        Student student=this.hibernateTemplate.get(Student.class,id);
-                this.hibernateTemplate.delete(id);
-
-                return true;
+        Student student=(Student)this.hibernateTemplate.get(Student.class,id);
+         this.hibernateTemplate.delete(id);
     }
 
     //update data
-    public  void update(int id)
+    @Transactional
+    public  void update(Student updateStudent)
     {
-        this.hibernateTemplate.update(id);
+        Student existingStudent=(Student) this.hibernateTemplate.get(Student.class,updateStudent.getId());
+
+
+        if (existingStudent!=null)
+        {
+            existingStudent.setId(updateStudent.getId());
+            existingStudent.setName(updateStudent.getName());
+            existingStudent.setCity(updateStudent.getCity());
+        }
+        this.hibernateTemplate.update(existingStudent);
     }
 
     public HibernateTemplate getHibernateTemplate() {
